@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Jadwal Rapat Kantor</title>
+
+    <!-- File CSS Eksternal -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Library QRCode.js (CDN) untuk render barcode Google Form -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+</head>
+
+<body>
+
+    <!-- ==========================================
+       BAGIAN ATAS: JAM DIGITAL & VIDEO
+       ========================================== -->
+    <div class="top-section">
+
+        <!-- Kotak Jam Digital dengan Background Berganti -->
+        <div class="clock-container" id="clockBox">
+            <div class="clock-overlay"></div>
+
+            <!-- Header Identitas Instansi -->
+            <div class="clock-header">
+                <!-- Ganti 'logo' dengan link atau path gambar logo Anda -->
+                <img src="assets/Logo_Company" alt="Logo Instansi" class="instansi-logo">
+
+                <div>
+                    <div class="instansi-title">YOUR COMPANY NAME</div>
+                </div>
+            </div>
+
+            <!-- Tampilan Waktu Realtime -->
+            <div class="clock-content">
+                <div class="time-wrapper">
+                    <span class="time-main" id="timeHourMin">00:00</span>
+                    <span class="time-seconds" id="timeSec">00</span>
+                </div>
+                <div class="date-display" id="dateText">Memuat tanggal...</div>
+            </div>
+        </div>
+
+        <!-- Frame Pemutar Video (YouTube Autoplay, Loop, Mute) -->
+        <div class="video-container">
+            <iframe src="https://www.youtube-nocookie.com/embed/YOUR_LINK_YOUTUBE" title="Dashboard Video" frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen>
+            </iframe>
+        </div>
+
+    </div>
+
+    <!-- ==========================================
+       BAGIAN BAWAH: TABEL JADWAL & QR CODE BOOKING
+       ========================================== -->
+    <div class="bottom-section">
+
+        <!-- Tabel List Jadwal Rapat -->
+        <div class="table-container">
+            <!-- Header tabel -->
+            <table class="schedule-table">
+                <thead>
+                    <tr>
+                        <th>Nama Rapat / Agenda</th>
+                        <th>Penyelenggara / Unit</th>
+                        <th>Lokasi / Ruangan</th>
+                        <th>Waktu</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+            </table>
+
+            <!-- Area isi tabel -->
+            <div class="table-scroll-body" id="scrollContainer">
+                <table class="schedule-table">
+                    <tbody id="scheduleBody">
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Panel Informasi QR Code untuk Booking Form -->
+        <div class="booking-panel">
+            <div class="booking-title">Pesan Ruangan</div>
+            <div class="booking-subtitle">Scan QR untuk reservasi jadwal via Google Form</div>
+            <div id="qrcode"></div>
+        </div>
+
+    </div>
+
+    <!-- File JavaScript Eksternal -->
+    <script src="script.js"></script>
+</body>
+
+</html>

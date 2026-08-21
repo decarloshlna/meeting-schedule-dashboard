@@ -1,0 +1,308 @@
+/* =========================================================================
+   1. RESET & DASAR TAMPILAN
+   ========================================================================= */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+body {
+    background-color: #0b1f14;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Palet warna: Gradient Hijau Tua ke Kuning  */
+:root {
+    --primary-dark: #0f3823;
+    --accent-green: #1f6e43;
+    --accent-yellow: #d4af37;
+    --gradient-bg: linear-gradient(135deg, #13462b 0%, #1e5a38 50%, #d4af37 100%);
+    --card-bg: rgba(255, 255, 255, 0.96);
+    --text-dark: #1e293b;
+    --text-muted: #64748b;
+}
+
+/* =========================================================================
+   2. AREA ATAS (JAM & VIDEO)
+   ========================================================================= */
+.top-section {
+    display: grid;
+    grid-template-columns: 38% 62%;
+    height: 40vh;
+    width: 100%;
+    background: #000;
+}
+
+/* Kotak Jam & Efek Transisi */
+.clock-container {
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    transition: background-image 1s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 24px;
+    color: #ffffff;
+    box-shadow: inset 0 0 100px rgba(0, 0, 0, 0.7);
+}
+
+.clock-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.2) 60%, rgba(0, 0, 0, 0.7) 100%);
+    z-index: 1;
+}
+
+/* Container header */
+.clock-header {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 12px;
+}
+
+.clock-content {
+    position: relative;
+    z-index: 2;
+}
+
+/* Ukuran dan styling logo */
+.instansi-logo {
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.7));
+}
+
+/* Wadah Teks */
+.instansi-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.instansi-title {
+    font-size: 1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    color: #ffffff;
+    white-space: nowrap;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+.instansi-subtitle {
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    white-space: nowrap;
+    color: #f1f5f9;
+    line-height: 1.2;
+    margin-top: 3px;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
+}
+
+.time-wrapper {
+    display: flex;
+    align-items: baseline;
+}
+
+.time-main {
+    font-size: 4.8rem;
+    font-weight: 800;
+    line-height: 1;
+    text-shadow: 0 4px 12px rgba(0, 0, 0, 0.7);
+}
+
+.time-seconds {
+    font-size: 2rem;
+    font-weight: 600;
+    margin-left: 8px;
+    color: #e2e8f0;
+}
+
+.date-display {
+    font-size: 1.3rem;
+    font-weight: 500;
+    margin-top: 6px;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+    color: #f1f5f9;
+}
+
+/* Wadah Video Responsif */
+.video-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background: #000;
+    overflow: hidden;
+}
+
+.video-container iframe,
+.video-container video {
+    width: 100%;
+    height: 100%;
+    border: none;
+    object-fit: cover;
+}
+
+/* =========================================================================
+   3. AREA BAWAH (TABEL & QR CODE)
+   ========================================================================= */
+.bottom-section {
+    height: 60vh;
+    background: var(--gradient-bg);
+    padding: 20px 30px;
+    display: flex;
+    gap: 24px;
+    box-sizing: border-box;
+}
+
+/* Wadah Tabel Rapat */
+.table-container {
+    flex: 1;
+    background: var(--card-bg);
+    border-radius: 12px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+.schedule-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+    table-layout: fixed;
+}
+
+.schedule-table th {
+    background: linear-gradient(90deg, #13462b, #1f6e43);
+    color: #ffffff;
+    padding: 14px 18px;
+    font-size: 0.95rem;
+    font-weight: 700;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+}
+
+/* Area Scroll Isi Tabel */
+.table-scroll-body {
+    flex: 1;
+    overflow: hidden;
+    position: relative;
+}
+
+.schedule-table td {
+    padding: 14px 18px;
+    font-size: 1.05rem;
+    color: var(--text-dark);
+    border-bottom: 1px solid #e2e8f0;
+    font-weight: 500;
+}
+
+/* Atur Lebar Tiap Kolom */
+.schedule-table th:nth-child(1),
+.schedule-table td:nth-child(1) {
+    width: 28%;
+}
+
+.schedule-table th:nth-child(2),
+.schedule-table td:nth-child(2) {
+    width: 20%;
+}
+
+.schedule-table th:nth-child(3),
+.schedule-table td:nth-child(3) {
+    width: 24%;
+}
+
+.schedule-table th:nth-child(4),
+.schedule-table td:nth-child(4) {
+    width: 14%;
+}
+
+.schedule-table th:nth-child(5),
+.schedule-table td:nth-child(5) {
+    width: 14%;
+}
+
+.schedule-table tbody tr:nth-child(even) {
+    background-color: #f8fafc;
+}
+
+.schedule-table tbody tr:hover {
+    background-color: #f1f5f9;
+}
+
+/* Badge Status Rapat */
+.badge-status {
+    display: inline-block;
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.status-ongoing {
+    background-color: #fee2e2;
+    color: #dc2626;
+    border: 1px solid #f87171;
+}
+
+.status-upcoming {
+    background-color: #dcfce7;
+    color: #16a34a;
+    border: 1px solid #86efac;
+}
+
+.status-completed {
+    background-color: #e2e8f0;
+    color: #64748b;
+    border: 1px #cbd5e1;
+}
+
+/* Panel QR Code */
+.booking-panel {
+    width: 220px;
+    background: var(--card-bg);
+    border-radius: 12px;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+.booking-title {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin-bottom: 4px;
+}
+
+.booking-subtitle {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    margin-bottom: 12px;
+}
+
+#qrcode img {
+    margin: 0 auto;
+}
