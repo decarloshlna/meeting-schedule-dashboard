@@ -9,9 +9,9 @@ const APPS_SCRIPT_API_URL = "YOUR_APPS_SCRIPT_API_URL";
 
 // 3. Koleksi Gambar Background Jam (Akan berganti setiap 15 detik)
 const backgroundImages = [
-  "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80",
-  "https://images.unsplash.com/photo-1710609942195-b9dab8f48fc6?auto=format&fit=crop&w=800&q=80",
-  "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?auto=format&fit=crop&w=800&q=80"
+  "https://images.unsplash.com/photo-1720884413532-59289875c3e1?auto=format&fit=crop&w=800&q=80",
+  "https://images.unsplash.com/photo-1708893634094-f6604d94e43f?auto=format&fit=crop&w=800&q=80",
+  "https://images.unsplash.com/photo-1721132447246-5d33f3008b05?auto=format&fit=crop&w=800&q=80"
 ];
 
 /* JAM & TANGGAL REALTIME (WIB) */
