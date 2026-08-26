@@ -1,6 +1,4 @@
-/* =========================================================================
-   1. RESET & DASAR TAMPILAN
-   ========================================================================= */
+/* RESET & DASAR TAMPILAN */
 * {
     box-sizing: border-box;
     margin: 0;
@@ -17,20 +15,18 @@ body {
     flex-direction: column;
 }
 
-/* Palet warna: Gradient Hijau Tua ke Kuning  */
+/* Palet warna*/
 :root {
-    --primary-dark: #0f3823;
-    --accent-green: #1f6e43;
-    --accent-yellow: #d4af37;
-    --gradient-bg: linear-gradient(135deg, #13462b 0%, #1e5a38 50%, #d4af37 100%);
+    --primary-dark: #082f49;
+    --accent-teal: #0f766e;
+    --accent-highlight: #2dd4bf;
+    --gradient-bg: linear-gradient(135deg, #031e2c 0%, #063747 60%, #0f4c5c 100%);
     --card-bg: rgba(255, 255, 255, 0.96);
-    --text-dark: #1e293b;
-    --text-muted: #64748b;
+    --text-dark: #0f172a;
+    --text-muted: #475569;
 }
 
-/* =========================================================================
-   2. AREA ATAS (JAM & VIDEO)
-   ========================================================================= */
+/* AREA ATAS (JAM & VIDEO) */
 .top-section {
     display: grid;
     grid-template-columns: 38% 62%;
@@ -159,9 +155,7 @@ body {
     object-fit: cover;
 }
 
-/* =========================================================================
-   3. AREA BAWAH (TABEL & QR CODE)
-   ========================================================================= */
+/* AREA BAWAH (TABEL & QR CODE) */
 .bottom-section {
     height: 60vh;
     background: var(--gradient-bg);
@@ -190,7 +184,7 @@ body {
 }
 
 .schedule-table th {
-    background: linear-gradient(90deg, #13462b, #1f6e43);
+    background: linear-gradient(90deg, #063747, #0f4c5c); 
     color: #ffffff;
     padding: 14px 18px;
     font-size: 0.95rem;

@@ -1,6 +1,4 @@
-/* =========================================================================
-   A. KONFIGURASI INTEGRASI DATA
-   ========================================================================= */
+/* KONFIGURASI INTEGRASI DATA */
 
 // 1. Masukkan Link Google Form Anda di sini (untuk diubah jadi QR Code):
 const GOOGLE_FORM_URL = "YOUR_LINK_GOOGLE_FORM_URL";
@@ -9,16 +7,14 @@ const GOOGLE_FORM_URL = "YOUR_LINK_GOOGLE_FORM_URL";
 // (Didapat dari menu Deploy -> New deployment -> Web app -> Copy URL)
 const APPS_SCRIPT_API_URL = "YOUR_APPS_SCRIPT_API_URL";
 
-// 3. Koleksi Gambar Background Jam (Akan berganti setiap 30 detik)
+// 3. Koleksi Gambar Background Jam (Akan berganti setiap 15 detik)
 const backgroundImages = [
   "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80",
   "https://images.unsplash.com/photo-1710609942195-b9dab8f48fc6?auto=format&fit=crop&w=800&q=80",
   "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?auto=format&fit=crop&w=800&q=80"
 ];
 
-/* =========================================================================
-   B. JAM & TANGGAL REALTIME (WIB)
-   ========================================================================= */
+/* JAM & TANGGAL REALTIME (WIB) */
 function updateClock() {
   const now = new Date();
   
@@ -40,15 +36,12 @@ function updateClock() {
 setInterval(updateClock, 1000);
 updateClock();
 
-/* =========================================================================
-   C. SLIDESHOW BACKGROUND JAM (TIAP 30 DETIK)
-   ========================================================================= */
+/* SLIDESHOW BACKGROUND JAM (TIAP 15 DETIK) */
 let currentBgIndex = 0;
 const clockBox = document.getElementById('clockBox');
 
 function rotateBackground() {
   clockBox.style.backgroundImage = `url('${backgroundImages[currentBgIndex]}')`;
-  // Pindah ke indeks gambar berikutnya secara berputar (looping)
   currentBgIndex = (currentBgIndex + 1) % backgroundImages.length;
 }
 
@@ -56,21 +49,17 @@ function rotateBackground() {
 setInterval(rotateBackground, 15000);
 rotateBackground();
 
-/* =========================================================================
-   D. GENERATE QR CODE GOOGLE FORM
-   ========================================================================= */
+/* GENERATE QR CODE GOOGLE FORM */
 new QRCode(document.getElementById("qrcode"), {
   text: GOOGLE_FORM_URL,
   width: 140,
   height: 140,
-  colorDark: "#13462b",
+  colorDark: "#063747",
   colorLight: "#ffffff",
   correctLevel: QRCode.CorrectLevel.H
 });
 
-/* =========================================================================
-   E. DATA & SINKRONISASI JADWAL RAPAT
-   ========================================================================= */
+/* DATA & SINKRONISASI JADWAL RAPAT */
 
 // Data cadangan (mockup) jika Apps Script URL belum diisi
 const fallbackMeetings = [
@@ -151,14 +140,14 @@ function renderMeetings(meetings) {
     let textStyle = '';
 
     if (currentMinutes >= endTotalMinutes) {
-      // 1. Waktu sekarang sudah melewati jam selesai -> SELESAI
+      // Waktu sekarang sudah melewati jam selesai -> SELESAI
       statusBadge = `<span class="badge-status status-completed">Selesai</span>`;
       textStyle = 'opacity: 0.6;'; // Redupkan sedikit agar fokus ke rapat aktif
     } else if (currentMinutes >= startTotalMinutes && currentMinutes < endTotalMinutes) {
-      // 2. Waktu sekarang berada di antara jam mulai dan selesai -> BERLANGSUNG
+      // Waktu sekarang berada di antara jam mulai dan selesai -> BERLANGSUNG
       statusBadge = `<span class="badge-status status-ongoing">Berlangsung</span>`;
     } else {
-      // 3. Waktu sekarang belum masuk jam mulai -> AKAN DATANG
+      // Waktu sekarang belum masuk jam mulai -> AKAN DATANG
       statusBadge = `<span class="badge-status status-upcoming">Akan Datang</span>`;
     }
 
