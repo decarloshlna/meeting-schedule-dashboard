@@ -29,7 +29,7 @@ body {
 /* AREA ATAS (JAM & VIDEO) */
 .top-section {
     display: grid;
-    grid-template-columns: 38% 62%;
+    grid-template-columns: 45% 55%;
     height: 40vh;
     width: 100%;
     background: #000;
